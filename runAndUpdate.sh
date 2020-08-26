@@ -9,7 +9,7 @@ do
     git pull
     git add reports images images_out
     git commit -m "updated for $(date)"
-    git push origin master
+    git push origin gh-pages
     # wait for next round
     sleep 1800 # every half hour / AZURE turned off
 done
