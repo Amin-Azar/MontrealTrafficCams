@@ -35,7 +35,7 @@ def plot_pie(obj_list, out_image):
 all_images_array = []
 all_files = os.listdir(execution_path+ '/' + images_folder)
 for each_file in all_files:
-    if(not each_file.startswith('.') and each_file.endswith(".jpg")): # or .png
+    if(not each_file.startswith('.') and (each_file.endswith(".jpg") or each_file.endswith(".jpeg"))): # or .png
         all_images_array.append(each_file)
 
 # DETECTION -----------------------------------------------
@@ -44,10 +44,10 @@ for image in all_images_array:
     in_image, out_image = images_folder + image , out_images_folder + image
     detections = detector.detectObjectsFromImage(input_image=os.path.join(execution_path , in_image), output_image_path=os.path.join(execution_path , out_image), minimum_percentage_probability=_min_percentage)
     results_array.append(detections)
-    all_objects =[]
-    for each_obj in detections:
-        all_objects.append(each_obj["name"])
-    plot_pie(all_objects, out_image+'_pie.jpg')
+    #all_objects =[]
+    #for each_obj in detections:
+    #    all_objects.append(each_obj["name"])
+    #plot_pie(all_objects, out_image+'_pie.jpg')
 
     
 # OUTPUT -----------------------------------------------
