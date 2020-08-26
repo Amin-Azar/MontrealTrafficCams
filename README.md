@@ -1,4 +1,4 @@
-# Vancouver Traffic Cameras
+# Montreal Traffic Cameras
 
 Analyzed images of Montreal traffic cameras. The images are being analyzed for their context, objects in it and the text messages. The extracted data can be used to get stats of vehicles commuted via captured routes throughout the day.
 The next step is to capture the raw and extracted data and have an anomaly detection mechanism applied on them to detect accidents, fires, festivals and events.
