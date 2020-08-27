@@ -535,3 +535,6 @@ The next step is to capture the raw and extracted data and have an anomaly detec
 <centre><img src="images_out/GEN528.jpeg" height="120" width="180"></centre>
 <centre><img src="images_out/GEN529.jpeg" height="120" width="180"></centre>
 <centre><img src="images_out/GEN530.jpeg" height="120" width="180"></centre>
+
+<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~amin1360/1.embed"></iframe>
+
