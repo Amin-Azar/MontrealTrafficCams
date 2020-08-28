@@ -3,13 +3,14 @@
 Hourly images of traffic cameras in Montréal. The images are being analyzed for their context, objects in it and the text messages. The extracted data can be used to get stats of vehicles commuted via captured routes throughout the day.
 The next step is to capture the raw and extracted data and have an anomaly detection mechanism applied on them to detect accidents, fires, festivals and events.
 
-<iframe width="540" height="240" frameborder="0" scrolling="no" src="//plotly.com/~amin1360/1.embed"></iframe>
 
 ### Traffic Image Segmentation
 This features  is not fully deployed yet!
-![]("images_out/segmentation.png")
+<centre><img src="images_out/segmentation.png" height="360" width="540"></centre>
 
 ### Montréal  Traffic Cameras
+
+<iframe width="540" height="240" frameborder="0" scrolling="no" src="//plotly.com/~amin1360/1.embed"></iframe>
 
 <centre><img src="images_out/GEN1.jpeg" height="120" width="180"></centre>
 <centre><img src="images_out/GEN2.jpeg" height="120" width="180"></centre>
