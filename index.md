@@ -5,6 +5,10 @@ The next step is to capture the raw and extracted data and have an anomaly detec
 
 <iframe width="540" height="240" frameborder="0" scrolling="no" src="//plotly.com/~amin1360/1.embed"></iframe>
 
+### Traffic Image Segmentation
+This features  is not fully deployed yet!
+![]("images_out/segmentation.png")
+
 ### Montréal  Traffic Cameras
 
 <centre><img src="images_out/GEN1.jpeg" height="120" width="180"></centre>
