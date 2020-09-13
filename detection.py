@@ -3,12 +3,17 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+import datetime
+import csv
+import sys
 
 # PARAMETERS -----------------------------------------------
 _min_percentage = 70
 output_file_name = 'detection.csv'
 images_folder = 'images/'
 out_images_folder = 'images_out/'
+out_csv_folder = 'data/'
 
 # INITIALIZE -----------------------------------------------
 execution_path = os.getcwd()
@@ -52,7 +57,38 @@ for image in all_images_array:
     
 # OUTPUT -----------------------------------------------
 out_file  = open(output_file_name,'w')
+for image, detect_objs in zip(all_images_array, results_array):
+    fileName = image.split(".")
+    preds, probs = [], []
+    df = pd.DataFrame(detect_objs, columns = {'name', 'percentage_probability', 'box_points'})
+    objDF = pd.DataFrame({
+        'date': [datetime.datetime.now().strftime('%Y%m%d')],
+        'time': [datetime.datetime.now().strftime('%Y%m%d')],
+        'traffic light': [len(df.loc[df['name'].isin(['traffic light'])])],
+        'car': [len(df.loc[df['name'].isin(['car'])])],
+        'bus': [len(df.loc[df['name'].isin(['bus'])])],
+        'truck': [len(df.loc[df['name'].isin(['truck'])])],
+        'person': [len(df.loc[df['name'].isin(['person'])])],
+        'bicycle': [len(df.loc[df['name'].isin(['bicycle'])])]
+    })
 
+    file =open (out_csv_folder + fileName[0] + '.csv','a')
+    with file:
+        fnames = ['date','time','traffic light','car','bus','truck','person','bicycle']
+        writer = csv.DictWriter(file, fieldnames=fnames)    
+        if(os.path.getsize(out_csv_folder + fileName[0] + '.csv') == 0):
+            writer.writeheader()
+        writer.writerow({ 
+                        'date': datetime.datetime.now().strftime('%Y%m%d'),
+                        'time': datetime.datetime.now().strftime('%H%M%S'),
+                        'traffic light': len(df.loc[df['name'].isin(['traffic light'])]),
+                        'car': len(df.loc[df['name'].isin(['car'])]),
+                        'bus': len(df.loc[df['name'].isin(['bus'])]),
+                        'truck': len(df.loc[df['name'].isin(['truck'])]),
+                        'person': len(df.loc[df['name'].isin(['person'])]),
+                        'bicycle': len(df.loc[df['name'].isin(['bicycle'])])
+        })
+ 
 for image, detect_objs in zip(all_images_array, results_array):
     preds, probs = [], []
     # TODO: not reporting the largest percentage!
