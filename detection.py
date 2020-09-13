@@ -61,16 +61,6 @@ for image, detect_objs in zip(all_images_array, results_array):
     fileName = image.split(".")
     preds, probs = [], []
     df = pd.DataFrame(detect_objs, columns = {'name', 'percentage_probability', 'box_points'})
-    objDF = pd.DataFrame({
-        'date': [datetime.datetime.now().strftime('%Y%m%d')],
-        'time': [datetime.datetime.now().strftime('%Y%m%d')],
-        'traffic light': [len(df.loc[df['name'].isin(['traffic light'])])],
-        'car': [len(df.loc[df['name'].isin(['car'])])],
-        'bus': [len(df.loc[df['name'].isin(['bus'])])],
-        'truck': [len(df.loc[df['name'].isin(['truck'])])],
-        'person': [len(df.loc[df['name'].isin(['person'])])],
-        'bicycle': [len(df.loc[df['name'].isin(['bicycle'])])]
-    })
 
     file =open (out_csv_folder + fileName[0] + '.csv','a')
     with file:
@@ -79,8 +69,8 @@ for image, detect_objs in zip(all_images_array, results_array):
         if(os.path.getsize(out_csv_folder + fileName[0] + '.csv') == 0):
             writer.writeheader()
         writer.writerow({ 
-                        'date': datetime.datetime.now().strftime('%Y%m%d'),
-                        'time': datetime.datetime.now().strftime('%H%M%S'),
+                        'date': datetime.datetime.now().strftime('%Y_%m_%d'),
+                        'time': datetime.datetime.now().strftime('%H_%M_%S'),
                         'traffic light': len(df.loc[df['name'].isin(['traffic light'])]),
                         'car': len(df.loc[df['name'].isin(['car'])]),
                         'bus': len(df.loc[df['name'].isin(['bus'])]),
