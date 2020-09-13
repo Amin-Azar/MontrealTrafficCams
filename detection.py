@@ -13,7 +13,7 @@ _min_percentage = 70
 output_file_name = 'detection.csv'
 images_folder = 'images/'
 out_images_folder = 'images_out/'
-out_csv_folder = 'data/'
+out_csv_folder = 'data_out/'
 
 # INITIALIZE -----------------------------------------------
 execution_path = os.getcwd()

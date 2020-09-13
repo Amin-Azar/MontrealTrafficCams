@@ -7,7 +7,7 @@ do
     python3 detection.py
     # push to the repo/ github page
     git pull
-    git add reports images images_out
+    git add data_out reports images images_out
     git commit -m "updated for $(date)"
     git push origin gh-pages
     # wait for next round
