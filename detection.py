@@ -39,7 +39,7 @@ def plot_pie(obj_list, out_image):
 # COLLECT IMAGES -----------------------------------------------
 all_images_array = []
 all_files = os.listdir(execution_path+ '/' + images_folder)
-for each_file in all_files:
+for each_file in all_files[0:1]:
     if(not each_file.startswith('.') and (each_file.endswith(".jpg") or each_file.endswith(".jpeg"))): # or .png
         all_images_array.append(each_file)
 
